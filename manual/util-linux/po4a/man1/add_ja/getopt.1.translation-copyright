@@ -1,0 +1,24 @@
+PO4A-HEADER: mode=before; position=^\.TH
+.\" ----------------------------------------------------------------------
+.\"
+.\" The original version of this translation was contributed 
+.\" to Linux JM project from NetBSD jman proj.
+.\"
+.\" The copyright for the modified parts of the translation blongs to us
+.\" with Linux JM project.
+.\"
+.\" Japanese Version Copyright for the modified parts (c) 2001-2020 Yuichi SATO
+.\"   and 2020 Yoichi Chonan,
+.\"         all rights reserved.
+.\" Translated Tue 11 Jan 1994
+.\"         by NetBSD jman proj. <jman@spa.is.uec.ac.jp>
+.\" Updated Sun Jan 14 04:46:37 JST 2001
+.\"         by Yuichi SATO <sato@complex.eng.hokudai.ac.jp>
+.\" Updated & Modified Sun Mar  2 15:11:49 JST 2003
+.\"         by Yuichi SATO <ysato444@yahoo.co.jp>
+.\" Updated & Modified (util-linux 2.34) Fri Sep 25 10:16:02 JST 2020
+.\"         by Yuichi SATO <ysato444@ybb.ne.jp>
+.\"         and Yoichi Chonan <cyoichi@maple.ocn.ne.jp>
+.\" Updated & Modified (util-linux 2.36) Sun Mar  7 09:36:18 JST 2021
+.\"         by Yoichi Chonan <cyoichi@maple.ocn.ne.jp>
+.\"

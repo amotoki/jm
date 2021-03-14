@@ -1,39 +1,6 @@
---- cal.1.orig	2020-04-08 21:03:51.470094321 +0900
-+++ cal.1	2020-04-08 21:07:11.594100909 +0900
-@@ -39,6 +39,19 @@
- .\" This file was generated with po4a. Translate the source file.
- .\"
- .\"*******************************************************************
-+.\"
-+.\" Japanese Version Copyright (c) 1999 NAKANO Takeo,
-+.\"   and 2002 Yuichi Sato,
-+.\"   and 2020 Yoichi Chonan,
-+.\"         all right reserved.
-+.\" Translated Sat 18 Mar 2000 by NAKANO Takeo <nakano@apm.seikei.ac.jp>
-+.\" Updated Fri 16 Feb 2001 by Nakano Takeo
-+.\" Updated & Modified Tue May  7 01:05:42 JST 2002
-+.\"         by Yuichi SATO <ysato@h4.dion.ne.jp>
-+.\" Updated & Modified (util-linux 2.34) Tue Mar  3 11:18:32 JST 2020
-+.\"         by Yuichi SATO <ysato@ybb.ne.jp>
-+.\"         and Yoichi Chonan <cyoichi@maple.ocn.ne.jp>
-+.\"
- .TH CAL 1 "January 2018" util\-linux "User Commands"
- .SH 名前
- cal \- カレンダーを表示する
-@@ -46,12 +59,30 @@
- \fBcal\fP [options] [[[\fIday\fP]\fI month\fP]\fI year\fP]
- .br
- \fBcal\fP [options] [\fItimestamp\fP|\fImonthname\fP]
-+.SH 読者へのご注意
-+これは、util-linux 版の \fBcal\fP コマンドのマニュアルである。\fBcal\fP
-+コマンドの実装には、いくつかの系統がある。御使用のディストリビューションが
-+util-linux 版以外の \fBcal\fP コマンドを採用している場合は、
-+動作やオプションがここで説明しているものとかなり違っているかもしれない。
-+そういうときは、英語版しかないかもしれないが、お手元の \fBcal\fP
-+コマンドに付属するマニュアルに当たってみていただきたい。
- .SH 説明
- \fBcal\fP は簡単なカレンダーを表示する。
- 引き数を一つも指定しないと、今月のカレンダーが表示される。
+--- cal.1.orig	2021-03-15 06:53:57.088658070 +0900
++++ cal.1	2021-03-15 06:56:50.540663495 +0900
+@@ -72,6 +72,17 @@
  .sp
  月 (上記 1 番目の書式の \fImonth\fP) は、数値 (1\-12)
  で指定してもよく、 現在のロケールの月の名前やその短縮形で指定してもよい。
@@ -51,7 +18,7 @@
  .sp
  この \fBcal\fP では、グレゴリオ暦とユリウス暦という二つの異なった暦法を併用している。
  両者はほぼ同一の暦法だが、グレゴリオ暦は閏年の頻度についてちょっとした補正を行っており、
-@@ -138,6 +169,14 @@
+@@ -158,6 +169,14 @@
  .TP 
  \fB\-w\fP, \fB\-\-week\fP[=\fInumber\fP]
  カレンダーに週番号を表示する (US 式と ISO\-8601 式が選べる)。
@@ -66,7 +33,7 @@
  .TP 
  \fB\-\-color\fP[=\fIwhen\fP]
  出力をカラー表示にする。指定が任意の引き数 \fIwhen\fP は、\fBauto\fP, \fBnever\fP, \fBalways\fP のいずれかである。引き数
-@@ -171,6 +210,13 @@
+@@ -191,6 +210,13 @@
  のように指定するわけだ。期間の前に "+" や "\-"
  を付ける代わりに、後ろに空白を置いて "left" や "ago"
  という単語を続けることもできる (たとえば、'1 week ago' のように)。
