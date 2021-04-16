@@ -52,24 +52,24 @@ readdir \- ディレクトリエントリーを読み込む
 .PP
 \fI注\fP: このシステムコールには glibc のラッパー関数は存在しない。「注意」の節を参照。
 .SH 説明
-これはあなたの興味をもっている関数ではない。 POSIX 準拠の C ライブラリインターフェースについては \fBreaddir\fP(3)  を見ること。
-このページは裸のカーネルのシステムコールインターフェースについて 記述しているが、このインターフェースは \fBgetdents\fP(2)
-によって取って代わられた。
+これはあなたの関心を引くような関数ではない。 POSIX 準拠の C ライブラリインターフェースについては \fBreaddir\fP(3)
+を参照のこと。このページは生のカーネルのシステムコールインターフェースについて記述しているが、このインターフェースは \fBgetdents\fP(2)
+によって置き換えられた。
 .PP
 \fBreaddir\fP()  は、ファイルディスクリプター \fIfd\fP が参照しているディレクトリから \fIold_linux_dirent\fP
-構造体を読み込み、 \fIdirp\fP で指されたバッファーに格納する。 \fIcount\fP 引き数は(ほとんどの \fIold_linux_dirent\fP
-構造体の読み込みにおいて)無視される
+構造体を読み込み、 \fIdirp\fP で指されたバッファーに格納する。 \fIcount\fP 引き数は (ほとんどの \fIold_linux_dirent\fP
+構造体の読み込みにおいて) 無視される
 .PP
-The \fIold_linux_dirent\fP structure is declared (privately in Linux kernel
-file \fBfs/readdir.c\fP)  as follows:
+\fIold_linux_dirent\fP 構造体は (Linux カーネルのファイル \fBfs/readdir.c\fP で内部用として)
+以下のように宣言される:
 .PP
 .in +4n
 .EX
 struct old_linux_dirent {
-    unsigned long d_ino;     /* inode number */
-    unsigned long d_offset;  /* offset to this \fIold_linux_dirent\fP */
-    unsigned short d_namlen; /* length of this \fId_name\fP */
-    char  d_name[1];         /* filename (null\-terminated) */
+    unsigned long d_ino;     /* inode 番号 */
+    unsigned long d_offset;  /* この \fIold_linux_dirent\fP へのオフセット */
+    unsigned short d_namlen; /* この \fId_name\fP の長さ */
+    char  d_name[1];         /* (NULL 終端された) ファイル名 */
 }
 .EE
 .in
