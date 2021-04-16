@@ -43,7 +43,7 @@
 .\"
 .TH SEEKDIR 3 2016\-03\-15 "" "Linux Programmer's Manual"
 .SH 名前
-seekdir \- 次の readdir() 呼び出しのために、ディレクトリストリーム中の位置を 設定する
+seekdir \- 次の readdir() 呼び出しのために、ディレクトリストリーム中の位置を設定する
 .SH 書式
 .nf
 \fB#include <dirent.h>\fP
@@ -57,13 +57,13 @@ glibc 向けの機能検査マクロの要件 (\fBfeature_test_macros\fP(7)  参
 .PP
 \fBseekdir\fP():
  _XOPEN_SOURCE
-    || /* Glibc since 2.19: */ _DEFAULT_SOURCE
-    || /* Glibc versions <= 2.19: */ _BSD_SOURCE || _SVID_SOURCE
+    || /* glibc 2.19 以降: */ _DEFAULT_SOURCE
+    || /* glibc 2.19 以前: */ _BSD_SOURCE || _SVID_SOURCE
 .SH 説明
 \fBseekdir\fP()  関数は、次の \fBreaddir\fP(3)  呼び出しの開始位置である、 ディレクトリストリームの中での位置を設定する。
 \fIloc\fP 引き数には、それ以前の \fBtelldir\fP(3) の呼び出しで返された値を渡すべきである。
 .SH 返り値
-\fBseekdir\fP()  関数は、値を返さない。
+\fBseekdir\fP() 関数は、値を返さない。
 .SH 属性
 この節で使用されている用語の説明については、 \fBattributes\fP(7) を参照。
 .TS

@@ -109,8 +109,8 @@ glibc 向けの機能検査マクロの要件 (\fBfeature_test_macros\fP(7)  参
 .RS 4
 .PD 0
 .ad b
-/* Since glibc 2.10: */ _POSIX_C_SOURCE\ >=\ 200809L
-    || /* Glibc versions <= 2.19: */ _BSD_SOURCE || _SVID_SOURCE
+/* glibc 2.10 以降: */ _POSIX_C_SOURCE\ >=\ 200809L
+    || /* glibc 2.19 以前: */ _BSD_SOURCE || _SVID_SOURCE
 .PD
 .RE
 .PP
@@ -124,8 +124,8 @@ glibc 向けの機能検査マクロの要件 (\fBfeature_test_macros\fP(7)  参
 \fInamelist\fP にまとめられる。 \fIfilter\fP が NULL ならば、すべてのエントリーが選択される。
 .PP
 比較関数 \fIcompar\fP()  には \fBalphasort\fP()  関数と \fBversionsort\fP()  関数を使うことができる。
-\fBalphasort\fP()  は \fBstrcoll\fP(3)  を用いてディレクトリエントリーをソートし、 \fBversionsort\fP()
-は文字列 \fI(*a)\->d_name\fP と \fI(*b)\->d_name\fP に対して \fBstrverscmp\fP(3)  を用いる。
+\fBalphasort\fP()  は \fBstrcoll\fP(3)  を用いてディレクトリエントリーをソートする。 \fBversionsort\fP()
+は文字列 \fI(*a)\->d_name\fP と \fI(*b)\->d_name\fP に対して \fBstrverscmp\fP(3) を用いる。
 .SS scandirat()
 \fBscandirat\fP() 関数は \fBscandir\fP() と全く同様の動作をする。差分についてはここで説明する。
 .PP
@@ -206,15 +206,13 @@ T}	Thread safety	MT\-Safe locale
 glibc 2.1 以降では \fBalphasort\fP()  は \fBstrcoll\fP(3)  を呼び出す。 \fBalphasort\fP()  は以前は
 \fBstrcmp\fP(3)  を使っていた。
 .PP
-Before glibc 2.10, the two arguments of \fBalphasort\fP()  and \fBversionsort\fP()
-were typed as \fIconst void\ *\fP.  When \fBalphasort\fP()  was standardized in
-POSIX.1\-2008, the argument type was specified as the type\-safe \fIconst
-struct dirent\ **\fP, and glibc 2.10 changed the definition of \fBalphasort\fP()
-(and the nonstandard \fBversionsort\fP())  to match the standard.
+glibc 2.10 より前では、 \fBalphasort\fP() と \fBversionsort\fP() の 2 つの引き数の型は \fIconst
+void\ *\fP であった。 \fBalphasort\fP() が POSIX.1\-2008 で標準化された際、引き数の型は型安全な \fIconst
+struct dirent\ **\fP として規定され、 glibc 2.10 は \fBalphasort\fP() (と非標準の
+\fBversionsort\fP()) の定義を標準に合致するように変更した。
 .SH 例
 .\"
-The program below prints a list of the files in the current directory in
-reverse order.
+以下のプログラムは、現在のディレクトリ内のファイル一覧を逆順で表示する。
 .SS プログラムのソース
 \&
 .EX

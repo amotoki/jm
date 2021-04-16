@@ -61,7 +61,7 @@ getdents, getdents64 \- ディレクトリエントリーを取得する
 \fI注\fP: \fBgetdents\fP() の glibc のラッパー関数は存在しない。「注意」の節を参照。
 .SH 説明
 これらはあなたの関心を引くようなインターフェースではない。 POSIX 準拠の C ライブラリインターフェースについては \fBreaddir\fP(3)
-を見ること。 このページは、カーネルシステムコールの生のインターフェースについて 記載したものである。
+を参照のこと。このページは、カーネルシステムコールの生のインターフェースについて記載したものである。
 .SS getdents()
 \fBgetdents\fP()  システムコールは、オープン済みのファイルディスクリプター \fIfd\fP で参照されるディレクトリから
 \fIlinux_dirent\fP 構造体をいくつか読み出し、 \fIdirp\fP が指しているバッファーに格納する。 \fIcount\fP
@@ -72,16 +72,16 @@ getdents, getdents64 \- ディレクトリエントリーを取得する
 .in +4n
 .EX
 struct linux_dirent {
-    unsigned long  d_ino;     /* Inode number */
-    unsigned long  d_off;     /* Offset to next \fIlinux_dirent\fP */
-    unsigned short d_reclen;  /* Length of this \fIlinux_dirent\fP */
-    char           d_name[];  /* Filename (null\-terminated) */
-                      /* length is actually (d_reclen \- 2 \-
+    unsigned long  d_ino;     /* inode 番号 */
+    unsigned long  d_off;     /* 次の \fIlinux_dirent\fP へのオフセット */
+    unsigned short d_reclen;  /* この \fIlinux_dirent\fP の長さ */
+    char           d_name[];  /* ファイル名 (ヌル終端される) */
+                      /* 実際の長さは (d_reclen \- 2 \-
                          offsetof(struct linux_dirent, d_name)) */
     /*
-    char           pad;       // Zero padding byte
-    char           d_type;    // File type (only since Linux
-                              // 2.6.4); offset is (d_reclen \- 1)
+    char           pad;       // 値 0 のパディングバイト
+    char           d_type;    // ファイル種別 (Linux 2.6.4 以降のみ);
+                              // オフセットは (d_reclen \- 1)
     */
 }
 .EE
@@ -127,23 +127,22 @@ UNIX ドメインソケットである。
 (Btrfs, ext2, ext3, ext4 はサポートしている)。 どのアプリケーションも、 \fBDT_UNKNOWN\fP
 が返された際に適切に処理できなければならない。
 .SS getdents64()
-The original Linux \fBgetdents\fP()  system call did not handle large
-filesystems and large file offsets.  Consequently, Linux 2.4 added
-\fBgetdents64\fP(), with wider types for the \fId_ino\fP and \fId_off\fP fields.  In
-addition, \fBgetdents64\fP()  supports an explicit \fId_type\fP field.
+元々の Linux の \fBgetdents\fP()
+システムコールは、大きなファイルシステムと大きなファイルオフセットを扱うことができなかった。その結果、Linux 2.4 で
+\fBgetdents64\fP() が追加された。 \fBgetdents64\fP() では、 \fId_ino\fP と \fId_off\fP
+でビット幅の大きなデータ型が使われている。また、 \fBgetdents64\fP() では \fId_type\fP フィールドを明示的にサポートされている。
 .PP
-The \fBgetdents64\fP()  system call is like \fBgetdents\fP(), except that its
-second argument is a pointer to a buffer containing structures of the
-following type:
+\fBgetdents64\fP() システムコールは \fBgetdents\fP() と似ているが、 2
+番目の引き数が以下の構造体が入ったバッファへのポインターである点が異なる。
 .PP
 .in +4n
 .EX
 struct linux_dirent64 {
-    ino64_t        d_ino;    /* 64\-bit inode number */
-    off64_t        d_off;    /* 64\-bit offset to next structure */
-    unsigned short d_reclen; /* Size of this dirent */
-    unsigned char  d_type;   /* File type */
-    char           d_name[]; /* Filename (null\-terminated) */
+    ino64_t        d_ino;    /* 64 ビットの inode 番号 */
+    off64_t        d_off;    /* 次の構造体への 64 ビットのオフセット */
+    unsigned short d_reclen; /* この dirent の大きさ */
+    unsigned char  d_type;   /* ファイル種別 */
+    char           d_name[]; /* ファイル名 (ヌル終端される) */
 };
 .EE
 .in
@@ -170,13 +169,12 @@ struct linux_dirent64 {
 .\" SVr4 documents additional ENOLINK, EIO error conditions.
 SVr4.
 .SH 注意
-Library support for \fBgetdents64\fP()  was added in glibc 2.30; there is no
-glibc wrapper for \fBgetdents\fP().  Calling \fBgetdents\fP()  (or \fBgetdents64\fP()
-on earlier glibc versions) requires the use of \fBsyscall\fP(2).  In that case
-you will need to define the \fIlinux_dirent\fP or \fIlinux_dirent64\fP structure
-yourself.
+\fBgetdents64\fP() に対応するライブラリのサポートは glibc 2.30 で追加された。 \fBgetdents\fP() に対する glibc
+ラッパー関数は存在しない。 \fBgetdents\fP() (もしくは glibc の古いバージョンでの \fBgetdents64\fP()) を呼び出すには、
+\fBsyscall\fP(2) を使う必要がある。その場合、構造体 \fIlinux_dirent\fP や \fIlinux_dirent64\fP
+を自分で定義する必要があるだろう。
 .PP
-Probably, you want to use \fBreaddir\fP(3)  instead of these system calls.
+おそらく、あなたが使いたいのは、これらのシステムコールではなく \fBreaddir\fP(3) の方であろう。
 .PP
 これらのシステムコールは \fBreaddir\fP(2)  を置き換えるものである。
 .SH 例
@@ -203,7 +201,7 @@ inode#    file type  d_reclen  d_off   d_name
 \&
 .EX
 #define _GNU_SOURCE
-#include <dirent.h>     /* Defines DT_* constants */
+#include <dirent.h>     /* DT_* 定数の定義 */
 #include <fcntl.h>
 #include <stdint.h>
 #include <stdio.h>
