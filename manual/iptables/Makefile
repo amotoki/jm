@@ -30,7 +30,7 @@ _updatepo-%:
 
 stat:
 	@for po in $(POFILES); do \
-	  echo -n $$(basename $$po)": "; \
+	  /bin/echo -n $$(basename $$po)": "; \
 	  msgfmt --statistics -o /dev/null $$po; \
 	done
 
