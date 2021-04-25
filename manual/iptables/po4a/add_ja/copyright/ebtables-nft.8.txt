@@ -1,0 +1,4 @@
+PO4A-HEADER: mode=before; position=^\.TH
+.\"
+.\" Japanese Version Copyright (c) 2021 Akihiro Motoki all right reserved.
+.\" Translated 2021-04-24, Akihiro Motoki <amotoki@gmail.com>
