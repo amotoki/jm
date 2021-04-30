@@ -40,8 +40,8 @@ msgstr "有効な引数:"
 msgid "error closing file"
 msgstr "ファイルクローズエラー"
 
-#: lib/closeout.c:122 src/basenc.c:945 src/basenc.c:957 src/basenc.c:963
-#: src/basenc.c:1006 src/basenc.c:1071 src/cat.c:187 src/cat.c:203
+#: lib/closeout.c:122 src/basenc.c:942 src/basenc.c:954 src/basenc.c:960
+#: src/basenc.c:1003 src/basenc.c:1068 src/cat.c:187 src/cat.c:203
 #: src/cat.c:287 src/cksum.c:245 src/expand.c:150 src/expand.c:175
 #: src/factor.c:2387 src/mktemp.c:339 src/od.c:970 src/paste.c:163
 #: src/seq.c:295 src/shuf.c:595 src/split.c:936 src/split.c:1190
@@ -914,7 +914,7 @@ msgstr ""
 msgid "missing operand"
 msgstr "オペランドがありません"
 
-#: src/basename.c:176 src/basenc.c:1225 src/comm.c:489 src/cp.c:621
+#: src/basename.c:176 src/basenc.c:1222 src/comm.c:489 src/cp.c:621
 #: src/date.c:471 src/dircolors.c:449 src/du.c:1019 src/hostid.c:72
 #: src/hostname.c:111 src/install.c:985 src/join.c:969 src/link.c:84
 #: src/ln.c:593 src/logname.c:70 src/mknod.c:182 src/mv.c:451 src/nproc.c:115
@@ -1051,27 +1051,27 @@ msgstr ""
 msgid "invalid input (length must be multiple of 4 characters)"
 msgstr "無効な入力 (長さは 4 の倍数でなければいけません)"
 
-#: src/basenc.c:1009 src/basenc.c:1055 src/csplit.c:277 src/csplit.c:1468
+#: src/basenc.c:1006 src/basenc.c:1052 src/csplit.c:277 src/csplit.c:1468
 #: src/join.c:465 src/shuf.c:233 src/shuf.c:279 src/shuf.c:559
 #: src/tac-pipe.c:76 src/tee.c:263 src/tr.c:1611
 #, c-format
 msgid "read error"
 msgstr "読み込みエラー"
 
-#: src/basenc.c:1074
+#: src/basenc.c:1071
 msgid "invalid input"
 msgstr "無効な入力"
 
-#: src/basenc.c:1121
+#: src/basenc.c:1118
 msgid "invalid wrap size"
 msgstr "無効な折り返しサイズ"
 
-#: src/basenc.c:1218
+#: src/basenc.c:1215
 #, c-format
 msgid "missing encoding type"
 msgstr "エンコード種別が指定されていません"
 
-#: src/basenc.c:1256 src/cat.c:764
+#: src/basenc.c:1253 src/cat.c:764
 msgid "closing standard input"
 msgstr "標準入力を閉じています"
 
