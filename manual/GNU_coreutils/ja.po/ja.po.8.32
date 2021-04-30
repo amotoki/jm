@@ -1,17 +1,17 @@
 # Japanese messages for GNU coreutils
-# Copyright (C) 2000, 2010, 2011, 2014, 2016 Free Software Foundation, Inc.
+# Copyright (C) 2000, 2010, 2011, 2014, 2021 Free Software Foundation, Inc.
 # This file is distributed under the same license as the coreutils package.
 # Masahito Yamaga <yamaga@ipc.chiba-u.ac.jp>, 2002.
 #  derived from the version by Yasuyuki Furukawa <yasu@on.cs.keio.ac.jp> 1998.
 #                              Jun Nishii <jun@flatout.org> 1999.
 #                              Daisuke Yamashita <yamad@mb.infoweb.ne.jp> 1999.
 # Yasuaki Taniguchi <yasuakit@gmail.com>, 2010, 2011, 2014.
-# Akihiro Motoki <amotoki@gmail.com> 2016
+# Akihiro Motoki <amotoki@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"Project-Id-Version: GNU coreutils 8.32\n"
+"Project-Id-Version: GNU coreutils 8.31.90\n"
 "Report-Msgid-Bugs-To: bug-coreutils@gnu.org\n"
-"POT-Creation-Date: 2020-03-05 13:28+0000\n"
+"POT-Creation-Date: 2020-02-27 17:02+0000\n"
 "PO-Revision-Date: 2021-04-26 23:41+0900\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -19,6 +19,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: lib/argmatch.c:132
